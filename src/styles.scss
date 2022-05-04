@@ -1,1 +1,27 @@
-/* You can add global styles to this file, and also import other style files */
+.container {
+  display: grid;
+  grid-template-columns: max-content max-content max-content;
+  grid-template-rows: 0.4fr 1.6fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Sidebar Navbar Navbar"
+    "Sidebar Main-content Main-content"
+    "Sidebar Main-content Main-content";
+}
+
+.Sidebar {
+  grid-area: Sidebar;
+}
+
+.Navbar {
+  grid-area: Navbar;
+}
+
+.Main-content {
+  grid-area: Main-content;
+}
+
+#map {
+  height: 100%;
+}
