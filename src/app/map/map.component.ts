@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
-
+import 'ol/ol.css';
+import Map from 'ol/Map';
+import View from 'ol/View';
+import { OSM } from 'ol/source';
+import TileLayer from 'ol/layer/Tile';
 
 @Component({
   selector: 'app-map',
@@ -10,21 +11,19 @@ import { catchError, map } from 'rxjs/operators';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent implements OnInit {
-  apiLoaded!: Observable<boolean>;
-  constructor(httpClient: HttpClient) {
-    this.apiLoaded = httpClient.jsonp('https://maps.googleapis.com/maps/api/js?key=AIzaSyCpMZtmLmoCJ9qNpr104P3UmZWEob6QXbg', 'callback')
-      .pipe(
-        map(() => true),
-        catchError(() => of(false)),
-      );
-  }
-
+  public map!: Map
   ngOnInit(): void {
-
-  };
-
-
-
-
-
+    this.map = new Map({
+      layers: [
+        new TileLayer({
+          source: new OSM(),
+        }),
+      ],
+      target: 'map',
+      view: new View({
+        center: [0, 0],
+        zoom: 2, maxZoom: 18,
+      }),
+    });
+  }
 }

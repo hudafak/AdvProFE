@@ -1,6 +1,8 @@
 <p-sidebar [(visible)]="visibleSidebar1" [baseZIndex]="10000">
-  <h1 style="font-weight:normal">Left Sidebar</h1>
-  <p-button type="button" (click)="visibleSidebar1 = false" label="Save" styleClass="p-button-success"></p-button>
-  <p-button type="button" (click)="visibleSidebar1 = false" label="Cancel" styleClass="p-button-secondary"></p-button>
+  <h1 style="font-weight:normal">Yelp Analytics</h1>
+  <p-button type="button" routerLink="map" label="Map" routerLinkActive="active" styleClass="p-button-success"></p-button>
+  <hr>
+  <p-button type="button" routerLink="charts" routerLinkActive="active" label="Charts" styleClass="p-button-success"></p-button>
+
 </p-sidebar>
 <p-button type="button" class="mr-2" (click)="visibleSidebar1 = true" icon="pi pi-arrow-right"></p-button>

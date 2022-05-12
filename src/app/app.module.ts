@@ -7,36 +7,37 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TabMenuModule } from 'primeng/tabmenu';
 import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
-import { GoogleMapsModule } from '@angular/google-maps';
-//components
+import { TableModule } from 'primeng/table';
+import { ChartModule } from 'primeng/chart';
 import { AppRoutingModule } from './app-routing.module';
+
+//components
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { NavbarComponent } from './navbar/navbar.component';
 import { MapComponent } from './map/map.component';
-import { TableComponent } from './table/table.component';
-import { MainContentComponent } from './main-content/main-content.component';
+import { ChartsComponent } from './charts/charts.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    NavbarComponent,
     MapComponent,
-    TableComponent,
-    MainContentComponent
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     SidebarModule,
     ButtonModule,
     TabMenuModule,
     MenuModule,
     MenubarModule,
-    GoogleMapsModule
+    TableModule,
+    ChartModule,
+    AppRoutingModule
+
 
   ],
   providers: [],

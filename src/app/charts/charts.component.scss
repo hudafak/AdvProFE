@@ -1,0 +1,55 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+    "Chart-1 Chart-2 Chart-3"
+    "Chart-6 Chart-5 Chart-4"
+    "Chart-7 Chart-8 Chart-9";
+}
+
+.Chart-1 {
+  grid-area: Chart-1;
+  border: solid black
+}
+
+.Chart-2 {
+  grid-area: Chart-2;
+  border: solid black
+}
+
+.Chart-3 {
+  grid-area: Chart-3;
+  border: solid black
+}
+
+.Chart-4 {
+  grid-area: Chart-4;
+  border: solid black
+}
+
+.Chart-5 {
+  grid-area: Chart-5;
+  border: solid black
+}
+
+.Chart-6 {
+  grid-area: Chart-6;
+  border: solid black
+}
+
+.Chart-7 {
+  grid-area: Chart-7;
+  border: solid black
+}
+
+.Chart-8 {
+  grid-area: Chart-8;
+  border: solid black
+}
+
+.Chart-9 {
+  grid-area: Chart-9;
+  border: solid black
+}
