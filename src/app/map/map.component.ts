@@ -10,6 +10,7 @@ import TileLayer from 'ol/layer/Tile';
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
+// test
 export class MapComponent implements OnInit {
   public map!: Map
   ngOnInit(): void {
