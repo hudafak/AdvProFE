@@ -10,18 +10,12 @@ import { MenubarModule } from 'primeng/menubar';
 import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 import { AppRoutingModule } from './app-routing.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+
 //components
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MapComponent } from './map/map.component';
 import { ChartsComponent } from './charts/charts.component';
-import { LoginComponent } from './login/login.component';
 
 
 
@@ -30,8 +24,7 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     SidebarComponent,
     MapComponent,
-    ChartsComponent,
-    LoginComponent
+    ChartsComponent
   ],
   imports: [
     BrowserModule,
@@ -43,13 +36,9 @@ import { LoginComponent } from './login/login.component';
     MenubarModule,
     TableModule,
     ChartModule,
-    AppRoutingModule,
-    FlexLayoutModule,
-    MatFormFieldModule,
-    MatInputModule,
-    MatButtonModule,
-    MatCardModule,
-MatToolbarModule
+    AppRoutingModule
+
+
   ],
   providers: [],
   bootstrap: [AppComponent]
