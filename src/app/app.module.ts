@@ -16,6 +16,9 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { HttpClientModule } from '@angular/common/http';
+import { MarkerService } from './marker.service';
+
 //components
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
@@ -49,9 +52,12 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-MatToolbarModule
+MatToolbarModule,
+HttpClientModule
   ],
-  providers: [],
+  providers: [
+    MarkerService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
