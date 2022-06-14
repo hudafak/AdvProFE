@@ -3,6 +3,9 @@
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   gap: 10px 10px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  margin-top: 2%;
   grid-template-areas:
     "Chart-1 Chart-2 Chart-3"
     "Chart-6 Chart-5 Chart-4"

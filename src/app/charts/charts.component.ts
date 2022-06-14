@@ -1,4 +1,9 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ApiStatService } from '../api/apistat.service';
+import { Business } from '../model/business';
+
 
 @Component({
   selector: 'app-charts',
@@ -8,9 +13,10 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 
 export class ChartsComponent implements OnInit {
   data: any;
-
   chartOptions: any;
-  constructor() { }
+  private subscriptions: Subscription[] = [];
+  businesses: Business[];
+  constructor(private apistat: ApiStatService) { }
 
   ngOnInit(): void {
     this.data = {
@@ -60,7 +66,6 @@ export class ChartsComponent implements OnInit {
         ]
       }]
     };
-
     this.chartOptions = {
       plugins: {
         legend: {
@@ -89,5 +94,6 @@ export class ChartsComponent implements OnInit {
       }
     };
   }
+
 
 }

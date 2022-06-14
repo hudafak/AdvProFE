@@ -1,0 +1,35 @@
+<p-table [value]="placeholder" [scrollable]="true" [virtualScroll]="true" scrollHeight="300px" [rows]="10">
+  <ng-template pTemplate="caption">
+    <div class="p-d-flex p-ai-center p-jc-between">
+      Top 10 Business
+      <p-button icon="pi pi-refresh"></p-button>
+    </div>
+  </ng-template>
+  <ng-template pTemplate="header">
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Reviews</th>
+      <th>Category</th>
+      <th>Stars</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-placeholder>
+    <tr>
+      <td>{{placeholder.id}}</td>
+      <td>{{placeholder.name}}</td>
+      <td>{{placeholder.open}}</td>
+      <td>{{placeholder.reviewCount}}</td>
+      <td>{{placeholder.category}}</td>
+      <td>
+        <p-rating [ngModel]="placeholder.stars" [readonly]="true" [cancel]="false"></p-rating>
+      </td>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="summary">
+    <div class="p-d-flex p-ai-center p-jc-between">
+      In total there are {{placeholder? placeholder.length : 0 }} placeholder.
+    </div>
+  </ng-template>
+</p-table>
