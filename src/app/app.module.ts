@@ -11,20 +11,26 @@ import { TableModule } from 'primeng/table';
 import { ChartModule } from 'primeng/chart';
 import { AppRoutingModule } from './app-routing.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './marker.service';
-
+import { RatingModule } from 'primeng/rating';
 //components
 import { AppComponent } from './app.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { MapComponent } from './map/map.component';
 import { ChartsComponent } from './charts/charts.component';
 import { LoginComponent } from './login/login.component';
+import { PiechartComponent } from './piechart/piechart.component';
+import { FilterComponent } from './filter/filter.component';
+import { FilterPipe } from './app.filter';
+import { TableTop10Component } from './table-top10/table-top10.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -34,7 +40,11 @@ import { LoginComponent } from './login/login.component';
     SidebarComponent,
     MapComponent,
     ChartsComponent,
-    LoginComponent
+    LoginComponent,
+    PiechartComponent,
+    FilterComponent,
+    FilterPipe,
+    TableTop10Component
   ],
   imports: [
     BrowserModule,
@@ -52,8 +62,12 @@ import { LoginComponent } from './login/login.component';
     MatInputModule,
     MatButtonModule,
     MatCardModule,
-MatToolbarModule,
-HttpClientModule
+    MatToolbarModule,
+    HttpClientModule,
+    TableModule,
+    RatingModule,
+    FormsModule
+
   ],
   providers: [
     MarkerService

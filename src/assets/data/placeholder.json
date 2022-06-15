@@ -1,0 +1,60 @@
+{
+  "data": [
+    {
+      "id": "1000",
+      "name": "The UPS Store",
+      "open": "true",
+      "reviewCount": 15,
+      "category": [
+        "Shipping Centers",
+        "Local Services",
+        "Notaries",
+        "Mailbox Centers",
+        "Printing Services"
+      ],
+      "stars": 3
+    },
+    {
+      "id": "1000",
+      "name": "The UPS Store",
+      "open": "true",
+      "reviewCount": 15,
+      "category": [
+        "Shipping Centers",
+        "Local Services",
+        "Notaries",
+        "Mailbox Centers",
+        "Printing Services"
+      ],
+      "stars": 3
+    },
+    {
+      "id": "1000",
+      "name": "The UPS Store",
+      "open": "true",
+      "reviewCount": 15,
+      "category": [
+        "Shipping Centers",
+        "Local Services",
+        "Notaries",
+        "Mailbox Centers",
+        "Printing Services"
+      ],
+      "stars": 3
+    },
+    {
+      "id": "1000",
+      "name": "The UPS Store",
+      "open": "true",
+      "reviewCount": 15,
+      "category": [
+        "Shipping Centers",
+        "Local Services",
+        "Notaries",
+        "Mailbox Centers",
+        "Printing Services"
+      ],
+      "stars": 3
+    }
+  ]
+}
