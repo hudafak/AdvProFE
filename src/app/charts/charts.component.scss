@@ -1,60 +1,81 @@
 .container {
+  margin-right: 50px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Map Map Map Map Map Map Map"
+    "Map Map Map Map Map Map Map"
+    "Charts Charts Charts Charts Charts Charts Charts"
+    "Charts Charts Charts Charts Charts Charts Charts"
+    "Charts Charts Charts Charts Charts Charts Charts"
+    "Charts Charts Charts Charts Charts Charts Charts"
+    "Charts Charts Charts Charts Charts Charts Charts"
+    "Charts Charts Charts Charts Charts Charts Charts";
+  height: 100%;
+  width: 100%;
+}
+
+.Map {
+  grid-area: Map;
+  border: 2px solid black;
+  margin-right: 50px;
+  margin-top: 50px;
+}
+
+.Charts {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
-  gap: 10px 10px;
-  margin-right: 2%;
-  margin-bottom: 2%;
-  margin-top: 2%;
+  gap: 0px 0px;
+  grid-auto-flow: row;
   grid-template-areas:
-    "Chart-1 Chart-2 Chart-3"
-    "Chart-6 Chart-5 Chart-4"
+    "Chart-1 Chart-1 Chart-1"
+    "Chart-2 Chart-3 Chart-3"
+    "Chart-4 Chart-5 Chart-6"
     "Chart-7 Chart-8 Chart-9";
+  grid-area: Charts;
+  margin-right: 50px;
 }
 
 .Chart-1 {
   grid-area: Chart-1;
-  border: solid black
 }
 
 .Chart-2 {
   grid-area: Chart-2;
-  border: solid black
 }
 
 .Chart-3 {
   grid-area: Chart-3;
-  border: solid black
 }
 
 .Chart-4 {
   grid-area: Chart-4;
-  border: solid black
 }
-
 
 .Chart-5 {
   grid-area: Chart-5;
-  border: solid black
 }
-
 
 .Chart-6 {
   grid-area: Chart-6;
-  border: solid black
 }
 
 .Chart-7 {
   grid-area: Chart-7;
-  border: solid black
 }
 
 .Chart-8 {
   grid-area: Chart-8;
-  border: solid black
 }
 
 .Chart-9 {
   grid-area: Chart-9;
-  border: solid black
+}
+
+.Filter {
+  grid-area: Filter;
 }

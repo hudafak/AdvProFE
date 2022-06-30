@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiStatService {
-  businesses: any;
+  businesses: Business[];
   private host = environment.apiUrl;
   constructor(private http: HttpClient) { }
 
@@ -18,23 +18,11 @@ export class ApiStatService {
       (`${this.host}/stat/business/custom/${city}/${name}`);
   }
 
-  // get all businesses
-  async getAllBusiness() {
-    this.businesses = await this.http.get("${this.host}/map/preview").toPromise();
-
-    //return await this.http.get<Business[]>
-    //  (`${this.host}/map/preview`);
+  // get top 10 business world
+  public getTopTenWorld(): Observable<Business[] | HttpErrorResponse> {
+    return this.http.get<Business[]>
+      (`${this.host}/stat/business/top/ten/total`);
   }
 
-  // store all businesses in localcache
-  public addBusinessToLocalCache(business: Business[]): void {
-    localStorage.setItem('businesses', JSON.stringify(business));
-  }
-  // get all businesses from localcache
-  public getBusinessFromLocalCache(): Business[] {
-    if (localStorage.getItem('businesses')) {
-      return JSON.parse(localStorage.getItem('businesses'));
-    }
-    return null;
-  }
+
 }
