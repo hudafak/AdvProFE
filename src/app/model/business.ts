@@ -3,26 +3,34 @@ import { OpeningHours } from "./openingHours";
 
 export class Business {
   public id: String;
+  public businessid: String;
   public name: string;
-  public adress: BusinessAdress;
+  public adress: String;
+  public city: String;
+  public state: String;
+  public postalCode: number;
+  public latitude: String;
+  public longitude: String;
   public stars: number;
   public reviewCount: number;
   public isOpen: boolean;
-  public attributes: string;
-  public categories: string;
-  public hours: OpeningHours;
-  private checkins: Date;
+  public categories: string[];
+
+
 
   constructor() {
     this.id = '';
+    this.businessid;
     this.name = '';
     this.adress = null;
+    this.city = ''
+    this.state = ''
+    this.postalCode = null
+    this.latitude = ''
+    this.longitude = ''
     this.stars = null;
     this.reviewCount = null;
     this.isOpen = null;
-    this.attributes = '';
-    this.categories = '';
-    this.hours = null;
-    this.checkins = null;
+    this.categories = [];
   }
 }

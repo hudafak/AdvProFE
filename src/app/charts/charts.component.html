@@ -1,29 +1,33 @@
 <div class="container">
-  <div class="Chart-1">
-    <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+  <div class="Map">
+    <app-map></app-map>
   </div>
-  <div class="Chart-2">
-    <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+  <div class="Charts">
+    <div class="Chart-1">
+      <app-table-top10></app-table-top10>
+    </div>
+    <div class="Chart-2">
+      <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+    </div>
+    <div class="Chart-3">
+      <app-piechart></app-piechart>
+    </div>
+    <div class="Chart-4">
+      <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+    </div>
+    <div class="Chart-5">
+      <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+    </div>
+    <div class="Chart-6">
+      <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+    </div>
+    <div class="Chart-7">
+      <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+    </div>
+    <div class="Chart-8">
+      <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
+    </div>
+    <div class="Chart-9"></div>
   </div>
-  <div class="Chart-3">
-    <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
-  </div>
-  <div class="Chart-4">
-    <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
-  </div>
-  <div class="Chart-5">
-    <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
-  </div>
-  <div class="Chart-6">
-    <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
-  </div>
-  <div class="Chart-7">
-    <p-chart type="bar" [data]="data" [options]="chartOptions"></p-chart>
-  </div>
-  <div class="Chart-8">
-    <app-table-top10></app-table-top10>
-  </div>
-  <div class="Chart-9">
-    <app-piechart></app-piechart>
-  </div>
+  <div class="Filter"></div>
 </div>
