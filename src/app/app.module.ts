@@ -1,5 +1,6 @@
 //Modules
 import { NgModule } from '@angular/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { BrowserModule } from '@angular/platform-browser';
 import { SidebarModule } from 'primeng/sidebar';
 import { ButtonModule } from 'primeng/button';
@@ -19,34 +20,31 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkerService } from './marker.service';
 import { RatingModule } from 'primeng/rating';
+import { ToastModule } from 'primeng/toast';
+import { CalendarModule } from 'primeng/calendar';
+import { SliderModule } from 'primeng/slider';
+import { MultiSelectModule } from 'primeng/multiselect';
+import { ContextMenuModule } from 'primeng/contextmenu';
+import { DialogModule } from 'primeng/dialog';
+import { DropdownModule } from 'primeng/dropdown';
+import { ProgressBarModule } from 'primeng/progressbar';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatTableModule } from '@angular/material/table';
 //components
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { MapComponent } from './map/map.component';
-import { ChartsComponent } from './charts/charts.component';
-import { LoginComponent } from './login/login.component';
-import { PiechartComponent } from './piechart/piechart.component';
-import { FilterComponent } from './filter/filter.component';
-import { FilterPipe } from './app.filter';
-import { TableTop10Component } from './table-top10/table-top10.component';
-import { FormsModule } from '@angular/forms';
+
 
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
-    SidebarComponent,
-    MapComponent,
-    ChartsComponent,
-    LoginComponent,
-    PiechartComponent,
-    FilterComponent,
-    FilterPipe,
-    TableTop10Component
+    AppComponent
   ],
   imports: [
+    MatPaginatorModule,
     BrowserModule,
     BrowserAnimationsModule,
     SidebarModule,
@@ -63,11 +61,21 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatCardModule,
     MatToolbarModule,
-    HttpClientModule,
-    TableModule,
     RatingModule,
-    FormsModule
-
+    CalendarModule,
+    SliderModule,
+    DialogModule,
+    MultiSelectModule,
+    ContextMenuModule,
+    DropdownModule,
+    ToastModule,
+    InputTextModule,
+    ProgressBarModule,
+    HttpClientModule,
+    FormsModule,
+    MatTableModule,
+    ReactiveFormsModule,
+    MatNativeDateModule
   ],
   providers: [
     MarkerService

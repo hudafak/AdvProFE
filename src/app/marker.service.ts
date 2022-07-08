@@ -6,23 +6,23 @@ import * as L from 'leaflet';
   providedIn: 'root'
 })
 export class MarkerService {
-  capitals: string = '/assets/data/usa-capitals.geojson';
+  capitals: string = 'localhost:8080/map/businesses/filtered/basic/empty/empty/empty/empty/empty';
   constructor(private http: HttpClient) {
-    
-   }
+
+  }
 
   makeCapitalMarkers(map: L.Map): void {
     this.http.get(this.capitals).subscribe((res: any) => {
-      for (const c of res.features) {
-        const lon = c.geometry.coordinates[0];
-        const lat = c.geometry.coordinates[1];
+      for (const c of res.data) {
+        const lon = c.longitude;
+        const lat = c.latitude;
         const marker = L.marker([lat, lon]);
-        
+
         marker.addTo(map);
       }
     });
 
 
 
-   }
+  }
 }
