@@ -13,8 +13,9 @@ export class Business {
   public longitude: String;
   public stars: number;
   public reviewCount: number;
-  public isOpen: boolean;
+  public open: boolean;
   public categories: string[];
+
 
 
 
@@ -30,7 +31,7 @@ export class Business {
     this.longitude = ''
     this.stars = null;
     this.reviewCount = null;
-    this.isOpen = null;
+    this.open = null;
     this.categories = [];
   }
 }

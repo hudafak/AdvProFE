@@ -1,0 +1,364 @@
+{
+  "data": [
+    {
+      "name": "Sonic Drive-In",
+      "city": "Ashland City",
+      "latitude": 36.269593,
+      "longitude": -87.058943,
+      "stars": 2,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "Sidelines Grill",
+      "city": "Ashland City",
+      "latitude": 36.250434,
+      "longitude": -87.035458,
+      "stars": 3,
+      "reviewCount": 39,
+      "open": true
+    },
+    {
+      "name": "Riverview Restaurant & Marina",
+      "city": "Ashland City",
+      "latitude": 36.268783,
+      "longitude": -87.07734,
+      "stars": 3,
+      "reviewCount": 70,
+      "open": true
+    },
+    {
+      "name": "Walmart Supercenter",
+      "city": "Ashland City",
+      "latitude": 36.248138,
+      "longitude": -87.033157,
+      "stars": 3,
+      "reviewCount": 8,
+      "open": true
+    },
+    {
+      "name": "Vantage Pointe at Marrowbone Heights",
+      "city": "Ashland City",
+      "latitude": 36.245023,
+      "longitude": -87.0234466,
+      "stars": 2,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "Sheyegirl Coffee",
+      "city": "Ashland City",
+      "latitude": 36.275129,
+      "longitude": -87.064182,
+      "stars": 5,
+      "reviewCount": 13,
+      "open": true
+    },
+    {
+      "name": "Mugs Coffee Hut",
+      "city": "Ashland City",
+      "latitude": 36.25979,
+      "longitude": -87.045757,
+      "stars": 4,
+      "reviewCount": 5,
+      "open": true
+    },
+    {
+      "name": "Gyro City",
+      "city": "Ashland City",
+      "latitude": 36.2736478,
+      "longitude": -87.0640262,
+      "stars": 4,
+      "reviewCount": 5,
+      "open": true
+    },
+    {
+      "name": "McDonald's",
+      "city": "Ashland City",
+      "latitude": 36.2731194,
+      "longitude": -87.0623285,
+      "stars": 2,
+      "reviewCount": 14,
+      "open": true
+    },
+    {
+      "name": "D&W Appliance Repair Service",
+      "city": "Ashland City",
+      "latitude": 36.3388188,
+      "longitude": -87.0611381,
+      "stars": 1,
+      "reviewCount": 12,
+      "open": true
+    },
+    {
+      "name": "King Automotive",
+      "city": "Ashland City",
+      "latitude": 36.2731755,
+      "longitude": -87.0637531,
+      "stars": 3,
+      "reviewCount": 9,
+      "open": true
+    },
+    {
+      "name": "Marrowbone Creek Brewing",
+      "city": "Ashland City",
+      "latitude": 36.2729228472,
+      "longitude": -87.0630159894,
+      "stars": 5,
+      "reviewCount": 11,
+      "open": true
+    },
+    {
+      "name": "Bow-Wow Beauty Salon",
+      "city": "Ashland City",
+      "latitude": 36.2743751,
+      "longitude": -87.0647775,
+      "stars": 3,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "Vuocolo's Italian Restaurant and Wine Bar",
+      "city": "Ashland City",
+      "latitude": 36.2496442,
+      "longitude": -87.0347469,
+      "stars": 4,
+      "reviewCount": 43,
+      "open": true
+    },
+    {
+      "name": "Burger King",
+      "city": "Ashland City",
+      "latitude": 36.2498474024,
+      "longitude": -87.0334777022,
+      "stars": 1,
+      "reviewCount": 9,
+      "open": true
+    },
+    {
+      "name": "Ashland City Pizza Depot",
+      "city": "Ashland City",
+      "latitude": 36.2755,
+      "longitude": -87.06523,
+      "stars": 3,
+      "reviewCount": 7,
+      "open": false
+    },
+    {
+      "name": "US Post Office",
+      "city": "Ashland City",
+      "latitude": 36.274819,
+      "longitude": -87.066557,
+      "stars": 2,
+      "reviewCount": 5,
+      "open": true
+    },
+    {
+      "name": "KFC",
+      "city": "Ashland City",
+      "latitude": 36.2709085171,
+      "longitude": -87.05985763,
+      "stars": 1,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "Vuocolo's Italian Pizzeria",
+      "city": "Ashland City",
+      "latitude": 36.274021,
+      "longitude": -87.0659,
+      "stars": 4,
+      "reviewCount": 9,
+      "open": false
+    },
+    {
+      "name": "Sunrise Cafe",
+      "city": "Ashland City",
+      "latitude": 36.275368,
+      "longitude": -87.065231,
+      "stars": 3,
+      "reviewCount": 6,
+      "open": false
+    },
+    {
+      "name": "Cody's Diner",
+      "city": "Ashland City",
+      "latitude": 36.2738826,
+      "longitude": -87.065841,
+      "stars": 4,
+      "reviewCount": 36,
+      "open": true
+    },
+    {
+      "name": "Cumberland day spa",
+      "city": "Ashland City",
+      "latitude": 36.279799,
+      "longitude": -87.0689239,
+      "stars": 4,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "O’Brien’s Southern Diner",
+      "city": "Ashland City",
+      "latitude": 36.2807082,
+      "longitude": -87.1441394076,
+      "stars": 4,
+      "reviewCount": 28,
+      "open": true
+    },
+    {
+      "name": "El Rey Mexican Restaurant",
+      "city": "Ashland City",
+      "latitude": 36.2741398,
+      "longitude": -87.0642409,
+      "stars": 3,
+      "reviewCount": 22,
+      "open": true
+    },
+    {
+      "name": "Food Lion Inc Store Nbr 693",
+      "city": "Ashland City",
+      "latitude": 36.2958116,
+      "longitude": -87.0479834,
+      "stars": 3,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "Laredo's Burrito and Taco Shop",
+      "city": "Ashland City",
+      "latitude": 36.2754147,
+      "longitude": -87.0653141,
+      "stars": 5,
+      "reviewCount": 14,
+      "open": true
+    },
+    {
+      "name": "Cheatham County Animal Clinic",
+      "city": "Ashland City",
+      "latitude": 36.2986116,
+      "longitude": -87.0474173,
+      "stars": 2,
+      "reviewCount": 11,
+      "open": true
+    },
+    {
+      "name": "Domino's Pizza",
+      "city": "Ashland City",
+      "latitude": 36.2974104,
+      "longitude": -87.0484714,
+      "stars": 3,
+      "reviewCount": 12,
+      "open": true
+    },
+    {
+      "name": "Boarders Inn & Suites by Cobblestone Hotels - Ashland City",
+      "city": "Ashland City",
+      "latitude": 36.284528,
+      "longitude": -87.0765133,
+      "stars": 3,
+      "reviewCount": 8,
+      "open": true
+    },
+    {
+      "name": "Popeyes Louisiana Kitchen",
+      "city": "Ashland City",
+      "latitude": 36.2506297844,
+      "longitude": -87.0345433666,
+      "stars": 3,
+      "reviewCount": 7,
+      "open": true
+    },
+    {
+      "name": "B&C Smokehouse",
+      "city": "Ashland City",
+      "latitude": 36.2523918152,
+      "longitude": -87.0335540771,
+      "stars": 3,
+      "reviewCount": 6,
+      "open": false
+    },
+    {
+      "name": "A Rose Garden",
+      "city": "Ashland City",
+      "latitude": 36.271595,
+      "longitude": -87.0623286,
+      "stars": 3,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "Gyro Cafe And Grill",
+      "city": "Ashland City",
+      "latitude": 36.2761463,
+      "longitude": -87.0649434,
+      "stars": 4,
+      "reviewCount": 6,
+      "open": true
+    },
+    {
+      "name": "New China Star",
+      "city": "Ashland City",
+      "latitude": 36.296691,
+      "longitude": -87.047735,
+      "stars": 3,
+      "reviewCount": 25,
+      "open": true
+    },
+    {
+      "name": "Mama D's",
+      "city": "Ashland City",
+      "latitude": 36.2748260879,
+      "longitude": -87.0648811385,
+      "stars": 4,
+      "reviewCount": 13,
+      "open": true
+    },
+    {
+      "name": "Ashland Nails",
+      "city": "Ashland City",
+      "latitude": 36.2799655913,
+      "longitude": -87.0679388568,
+      "stars": 4,
+      "reviewCount": 13,
+      "open": true
+    },
+    {
+      "name": "Whitt's Barbecue-Ashland City",
+      "city": "Ashland City",
+      "latitude": 36.2970786,
+      "longitude": -87.0487447,
+      "stars": 3,
+      "reviewCount": 9,
+      "open": true
+    },
+    {
+      "name": "Li's Asian Buffet",
+      "city": "Ashland City",
+      "latitude": 36.2495396252,
+      "longitude": -87.035814454,
+      "stars": 2,
+      "reviewCount": 12,
+      "open": false
+    },
+    {
+      "name": "Walgreens",
+      "city": "Ashland City",
+      "latitude": 36.2724883,
+      "longitude": -87.0616084,
+      "stars": 3,
+      "reviewCount": 9,
+      "open": true
+    },
+    {
+      "name": "USA Plumbing",
+      "city": "Ashland City",
+      "latitude": 36.2277378625,
+      "longitude": -87.0025379157,
+      "stars": 4,
+      "reviewCount": 7,
+      "open": true
+    }
+  ]
+}
