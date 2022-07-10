@@ -42,12 +42,16 @@ export class AppComponent implements AfterViewInit, OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    
+
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
   }
 
+  isCollapsed = false;
+  openNav() {
+    this.isCollapsed = true;
+  }
 
 }
 
