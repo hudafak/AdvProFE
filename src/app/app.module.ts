@@ -11,7 +11,6 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { HttpClientModule } from '@angular/common/http';
-import { MarkerService } from './marker.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
@@ -50,7 +49,6 @@ import { AppComponent } from './app.component';
     })
   ],
   providers: [
-    MarkerService
   ],
   bootstrap: [AppComponent]
 })
