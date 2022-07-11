@@ -10,6 +10,23 @@ import { take, takeUntil } from 'rxjs/operators';
 import { ECharts, EChartsOption } from 'echarts';
 import { MatSort, Sort } from '@angular/material/sort';
 import { RatingModule } from 'ngx-bootstrap/rating';
+import * as L from 'leaflet';
+
+//values for Map
+const iconRetinaUrl = 'assets/marker-icon-2x.png';
+const iconUrl = 'assets/marker-icon.png';
+const shadowUrl = 'assets/marker-shadow.png';
+const iconDefault = L.icon({
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
+  iconSize: [25, 41],
+  iconAnchor: [12, 41],
+  popupAnchor: [1, -34],
+  tooltipAnchor: [16, -28],
+  shadowSize: [41, 41]
+});
+L.Marker.prototype.options.icon = iconDefault;
 
 
 
@@ -27,6 +44,15 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   //Directive for searchable Select field
   @ViewChild('singleSelect', { static: true }) singleSelect: MatSelect;
 
+  //vars for map
+  private map;
+  public tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 18,
+    minZoom: 3,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  });
+
+
   // vars for filter-api
   public state: string = 'empty';
   public city: string = 'empty';
@@ -34,15 +60,19 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   public stars: string = 'empty';
   public open: string = 'empty';
   public category: string = 'empty'
+
   // vars for open/closed pie-chart
   public openCount: number = 0;
   public closedCount: number = 0;
   public businessHold: Business[] = [];
+  public catHold: string[] = [];
   public openMerge = {}
   public starMerge = {}
+  public catMerge = {}
 
   // var for showing loading animation
   public isLoading: boolean = false;
+
   // vars for searchable Select fields
   public cities: string[] = [];
   public states: string[] = [];
@@ -59,6 +89,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   public catFilterCtrl: FormControl = new FormControl();
   public filteredCats: ReplaySubject<any> = new ReplaySubject(1);
   protected _onDestroy = new Subject();
+
   // Columns for Mat-table
   public displayedColumns: string[] = ['name', 'city', 'stars', 'open', 'reviewCount'];
   public ELEMENT_DATA: Business[] = [];
@@ -69,6 +100,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+
     this.getAllBusiness();
     this.getCities();
     this.getStates();
@@ -98,6 +130,9 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.empTbSort;
     this.setInitialValue();
+    this.initMap();
+    this.countCategories();
+
   }
 
   ngOnDestroy() {
@@ -185,52 +220,48 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
   }
   public getAllBusiness() {
     this.isLoading = true
+
     let res = this.apiService.filterBusiness(this.state, this.city, this.stars, this.open, this.reviews, this.category);
     res.subscribe((business) => {
       this.dataSource.data = business as Business[];
     },
       (err) => console.log(err),
-      () => { this.countOpenClosed(); this.countStars() });
+      () => {
+        this.countOpenClosed();
+        this.countStars();
+
+      });
 
   }
 
   updateData() {
     this.isLoading = true;
-
+    this.map.remove()
+    this.initMap();
     if (this.cityCtrl.value) {
       this.city = this.cityCtrl.value
-      console.log("city: " + this.city)
+
     } else {
-      console.log("city: " + this.city)
     }
     if (this.stateCtrl.value) {
       this.state = this.stateCtrl.value
-      console.log("state: " + this.state)
     } else {
-      console.log("state: " + this.state)
     }
     if (this.starCtrl.value) {
-      this.stars = this.starCtrl.value
-      console.log("stars: " + this.stars)
+      let value = this.starCtrl.value as number
+      value = value - 1;
+      this.stars = value as unknown as string;
     } else {
-      console.log("stars: " + this.stars)
     }
     if (this.openCtrl.value) {
       this.open = this.openCtrl.value
-      console.log("open: " + this.open)
     } else {
-      console.log("open: " + this.open)
     }
     if (this.catCtrl.value) {
       this.category = this.catCtrl.value
-      console.log("category: " + this.category)
     } else {
-      console.log("category: " + this.category)
     }
-
     this.getAllBusiness()
-
-
   }
 
   getCities() {
@@ -292,27 +323,15 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
         shadowOffsetX: 0,
         shadowColor: 'rgba(0, 0, 0, 0.5)'
       }
-
     }
-
-
-    // this.starOption.series[0].data.push(data0)
-    // this.starOption.series[0].data.push(data1)
-    // this.starOption.series[0].data.push(data2)
-    // this.starOption.series[0].data.push(data3)
-    // this.starOption.series[0].data.push(data4)
-    // this.starOption.series[0].data.push(data5)
-    // console.log(this.starOption.series[0].data)
   }
+
   countOpenClosed() {
-    console.log("Aufruf count: " + this.dataSource.data.length)
+
     this.businessHold = this.dataSource.data as Business[];
-    console.log(this.businessHold.length)
-    console.log(this.businessHold)
+    this.makeMarkers(this.map)
     this.openCount = this.businessHold.filter((obj) => obj.open === true).length;
-    console.log(this.openCount)
     this.closedCount = this.businessHold.filter((obj) => obj.open === false).length;
-    console.log(this.closedCount)
     let data1 = {
       value: this.closedCount,
       name: 'Closed'
@@ -337,22 +356,126 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
           }
         }
       ]
-
-
     }
-    // this.openClosedOptions.series[0].data.push(data1)
-    // this.openClosedOptions.series[0].data.push(data2)
     this.isLoading = false
 
   }
+  countCategories() {
+
+    let data0: {}
+    let data1: {}
+    let data2: {}
+    let data3: {}
+    let data4: {}
+    let data5: {}
+    let data6: {}
+    let data7: {}
+    let data8: {}
+    let data9: {}
+    let res = this.apiService.getTopCategories();
+    res.subscribe((obj) => {
+      this.catHold = obj as string[];
+    },
+      (err) => console.log(err),
+      () => {
+        let count = 0;
+        for (let index = 0; index < this.catHold.length; index++) {
+          let dataname = "data" + count
+          let nomb = this.catHold[index];
+          let numb = this.catHold[index + 1]
+          if ("data0" === dataname) {
+            data0 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data0)
+          }
+          if ("data1" === dataname) {
+            data1 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data1)
+          }
+          if ("data2" === dataname) {
+            data2 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data2)
+          }
+          if ("data3" === dataname) {
+            data3 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data3)
+          }
+          if ("data4" === dataname) {
+            data4 = {
+              value: numb,
+              name: nomb,
+
+            }
+            this.catOptions.series[0].data.push(data4)
+          }
+          if ("data5" === dataname) {
+            data5 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data5)
+          }
+          if ("data6" === dataname) {
+            data6 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data6)
+          }
+          if ("data7" === dataname) {
+            data7 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data7)
+          }
+          if ("data8" === dataname) {
+            data8 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data8)
+          }
+          if ("data9" === dataname) {
+            data9 = {
+              value: numb,
+              name: nomb,
+            }
+            this.catOptions.series[0].data.push(data9)
+          }
+
+          index++
+          count++
+        }
+        console.log(this.catOptions.series[0])
+      });
+
+  }
+
   resetFilter() {
+    this.state = 'empty';
+    this.city = 'empty';
+    this.reviews = 'empty';
+    this.stars = 'empty';
+    this.open = 'empty';
+    this.category = 'empty'
     this.catCtrl.reset();
     this.cityCtrl.reset();
     this.stateCtrl.reset();
     this.openCtrl.reset();
     this.starCtrl.reset();
   }
-
 
   openClosedOptions: EChartsOption = {
     title: {
@@ -370,6 +493,35 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     series: [
       {
         name: 'Status',
+        type: 'pie',
+        radius: '70%',
+        data: [],
+        emphasis: {
+          itemStyle: {
+            shadowBlur: 10,
+            shadowOffsetX: 0,
+            shadowColor: 'rgba(0, 0, 0, 0.5)'
+          }
+        }
+      }
+    ]
+  };
+
+  catOptions: EChartsOption = {
+    title: {
+      text: 'Categories',
+      left: 'left'
+    },
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      orient: 'horizontal',
+      bottom: 'bottom'
+    },
+    series: [
+      {
+        name: 'Categories',
         type: 'pie',
         radius: '70%',
         data: [],
@@ -414,11 +566,26 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
       shadowColor: 'rgba(0, 0, 0, 0.5)'
     }
   };
+
+  initMap(): void {
+    this.map = L.map('map', {
+      center: [39.8282, -98.5795],
+      zoom: 3
+    });
+
+    this.tiles.addTo(this.map);
+
+  }
+  makeMarkers(map: L.Map): void {
+    if (this.businessHold.length < 10000) {
+      for (const c of this.businessHold) {
+        const lon = c.longitude as unknown as number
+        const lat = c.latitude as unknown as number;
+        const marker = L.marker([lat, lon]);
+        marker.addTo(map);
+      }
+    }
+
+  }
+
 }
-
-
-
-
-
-
-
