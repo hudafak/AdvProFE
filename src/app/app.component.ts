@@ -295,6 +295,7 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
 
     }
 
+
     // this.starOption.series[0].data.push(data0)
     // this.starOption.series[0].data.push(data1)
     // this.starOption.series[0].data.push(data2)
@@ -344,7 +345,13 @@ export class AppComponent implements AfterViewInit, OnInit, OnDestroy {
     this.isLoading = false
 
   }
-
+  resetFilter() {
+    this.catCtrl.reset();
+    this.cityCtrl.reset();
+    this.stateCtrl.reset();
+    this.openCtrl.reset();
+    this.starCtrl.reset();
+  }
 
 
   openClosedOptions: EChartsOption = {
