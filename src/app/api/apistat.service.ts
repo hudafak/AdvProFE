@@ -60,9 +60,12 @@ export class ApiStatService {
       (`${this.host}/map/states`)
   }
 
+  public getTopCategories() {
+    return this.http.get
+      (`${this.host}/map/categories/top10`)
+  }
   public getAllCategories() {
     return this.http.get
       (`${this.host}/map/categories`)
   }
-
 }

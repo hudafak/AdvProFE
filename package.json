@@ -28,6 +28,7 @@
     "chart.js": "^3.7.1",
     "echarts": "^5.3.3",
     "jquery": "^3.6.0",
+    "leaflet": "^1.8.0",
     "ngx-bootstrap": "^8.0.0",
     "ngx-echarts": "^14.0.0",
     "ngx-mat-select-search": "^4.2.0",
