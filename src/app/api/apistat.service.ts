@@ -43,18 +43,26 @@ export class ApiStatService {
       (`${this.host}/map/businesses/filtered/basic/empty/empty/empty/empty/empty`)
   }
 
-
-  // public getAllBusinesses() {
-  //   return this.http.get<any>
-  //     ('../../assets/data/Businesses.json')
-  //     .toPromise()
-  //     .then(res => <Business[]>res.data)
-  //     .then(data => { return data; })
-  // }
-
   // filter Businesses
-  public filterBusiness(state: string, city: string, stars: number, open: boolean, review: number): Observable<Business[] | HttpErrorResponse> {
+  public filterBusiness(state: string, city: string, stars: string, open: string, review: string, category: string): Observable<Business[] | HttpErrorResponse> {
     return this.http.get<Business[]>
-      (`${this.host}/map/businesses/filtered/basic/${state}/${city}/${stars}/${open}/${review}`);
+      (`${this.host}/map/businesses/filtered/basic/${state}/${city}/${stars}/${open}/${review}/${category}`);
   }
+
+  //get all cities
+  public getAllCities() {
+    return this.http.get
+      (`${this.host}/map/citys`)
+  }
+
+  public getAllStates() {
+    return this.http.get
+      (`${this.host}/map/states`)
+  }
+
+  public getAllCategories() {
+    return this.http.get
+      (`${this.host}/map/categories`)
+  }
+
 }
