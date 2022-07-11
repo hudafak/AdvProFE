@@ -16,13 +16,14 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatTableModule } from '@angular/material/table';
 import * as echarts from 'echarts';
 import { NgxEchartsModule } from 'ngx-echarts';
+import { MatSelectModule } from '@angular/material/select';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { MatSortModule } from '@angular/material/sort';
+import { RatingModule } from 'ngx-bootstrap/rating';
+
 
 //components
 import { AppComponent } from './app.component';
-
-
-
-
 
 @NgModule({
   declarations: [
@@ -44,8 +45,13 @@ import { AppComponent } from './app.component';
     ReactiveFormsModule,
     MatNativeDateModule,
     MatTableModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatSortModule,
+    NgxMatSelectSearchModule,
+    RatingModule.forRoot(),
     NgxEchartsModule.forRoot({
-      echarts
+      echarts: () => import('echarts')
     })
   ],
   providers: [
